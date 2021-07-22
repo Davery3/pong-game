@@ -1,1 +1,1 @@
-# pong-game
+# Pong game built with pure Javascript.
