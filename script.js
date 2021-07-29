@@ -10,6 +10,7 @@ var player1Score = 0;
 var player2Score = 0;
 const PADDLE_HEIGHT = 100;
 const PADDLE_THICKNESS = 10;
+var framesPerSecond = 30;
 
 function calculateMousePos(evt) {
   var rect = canvas.getBoundingClientRect();
@@ -25,16 +26,23 @@ function calculateMousePos(evt) {
 window.onload = function() {
   canvas = document.getElementById('gameCanvas');
   canvasContext = canvas.getContext('2d');
-  var framesPerSecond = 30;
-  setInterval(function() {
-    moveEverything();
-    drawEverything();
-  }, 1000/framesPerSecond);
+  drawStartScreen();
+}
+
+function runGame() {
+  moveEverything();
+  drawEverything();
+}
+
+function runGameWithInterval() {
+  setInterval(runGame, 1000/framesPerSecond);
   //Hooking mouse position to paddle
   canvas.addEventListener('mousemove', function(evt) {
     var mousePos = calculateMousePos(evt);
     paddle1Y = mousePos.y - (PADDLE_HEIGHT/2);
   })
+  //remove start button after click
+  document.getElementById("menu").remove();
 }
 
 function ballReset() {
@@ -75,6 +83,11 @@ function moveEverything() {
   }
 }
 
+function drawStartScreen() {
+  //Makes Black Square Background
+  colorRect(0, 0, canvas.width, canvas.height, 'black');
+}
+
 function drawEverything() {
   //Makes Black Square Background
   colorRect(0, 0, canvas.width, canvas.height, 'black');
@@ -101,6 +114,15 @@ function colorRect (leftX, topY, width, height, drawColor) {
   canvasContext.fillStyle = drawColor;
   canvasContext.fillRect (leftX, topY, width, height);
 }
+function increaseBallSpeed() {
+  //ballSpeedX = ballSpeedX + 10;
+  ballSpeedX += 5;
+  ballSpeedY += 5;
+}
+
+document.getElementById("menu").addEventListener('click', runGameWithInterval);
+document.getElementById("ballspeed").addEventListener('click', increaseBallSpeed);
+
 
 /*var canvas = document.getElementById('gameCanvas');
 var canvasContext = canvas.getContext('2d');

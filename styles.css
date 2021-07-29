@@ -10,3 +10,27 @@ body {
 canvas {
    display: inline;
  }
+ #menu {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   position: relative;
+   padding: 10px;
+   bottom: 300px;
+ }
+
+ .menudiv {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   position: relative;
+ }
+ .ballspeeddiv {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   position: relative;
+ }
