@@ -114,14 +114,10 @@ function colorRect (leftX, topY, width, height, drawColor) {
   canvasContext.fillStyle = drawColor;
   canvasContext.fillRect (leftX, topY, width, height);
 }
-function increaseBallSpeed() {
-  //ballSpeedX = ballSpeedX + 10;
-  ballSpeedX += 5;
-  ballSpeedY += 5;
-}
+
 
 document.getElementById("menu").addEventListener('click', runGameWithInterval);
-document.getElementById("ballspeed").addEventListener('click', increaseBallSpeed);
+
 
 
 /*var canvas = document.getElementById('gameCanvas');
