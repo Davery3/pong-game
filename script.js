@@ -11,6 +11,7 @@ var player2Score = 0;
 const PADDLE_HEIGHT = 100;
 const PADDLE_THICKNESS = 10;
 var framesPerSecond = 30;
+var middleLineThickness = 8;
 
 function calculateMousePos(evt) {
   var rect = canvas.getBoundingClientRect();
@@ -91,6 +92,8 @@ function drawStartScreen() {
 function drawEverything() {
   //Makes Black Square Background
   colorRect(0, 0, canvas.width, canvas.height, 'black');
+  //Makes Middle Line
+  colorRect(canvas.width/2, 0, middleLineThickness, canvas.height, 'white');
   //Makes Paddle 1
   colorRect(0, paddle1Y, PADDLE_THICKNESS, PADDLE_HEIGHT, 'white');
   //Makes Paddle 2
